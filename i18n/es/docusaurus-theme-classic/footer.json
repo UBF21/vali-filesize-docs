@@ -1,0 +1,13 @@
+{
+  "link.item.label.Introduction": { "message": "Introducción" },
+  "link.item.label.Quick Start": { "message": "Inicio Rápido" },
+  "link.item.label.API Reference": { "message": "Referencia API" },
+  "link.item.label.Extension Methods": { "message": "Métodos de Extensión" },
+  "link.item.label.Vali-FileSize on NuGet": { "message": "Vali-FileSize en NuGet" },
+  "link.item.label.GitHub Repository": { "message": "Repositorio GitHub" },
+  "link.item.label.Vali-Mediator": { "message": "Vali-Mediator" },
+  "link.item.label.Vali-Validation": { "message": "Vali-Validation" },
+  "copyright": {
+    "message": "Copyright © {currentYear} Felipe Montenegro. Construido con Docusaurus."
+  }
+}

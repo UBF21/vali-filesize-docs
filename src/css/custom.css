@@ -1,0 +1,98 @@
+/**
+ * Vali-FileSize Docs — custom theme
+ * Brand: Amber #F59E0B · Dark #D97706 · Space Grotesk + Space Mono
+ */
+
+:root {
+  --ifm-color-primary: #D97706;
+  --ifm-color-primary-dark: #C26A05;
+  --ifm-color-primary-darker: #B45309;
+  --ifm-color-primary-darkest: #92400E;
+  --ifm-color-primary-light: #F59E0B;
+  --ifm-color-primary-lighter: #FBBF24;
+  --ifm-color-primary-lightest: #FCD34D;
+
+  --ifm-code-font-size: 94%;
+  --ifm-font-family-base: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --ifm-font-family-monospace: 'Space Mono', 'Menlo', 'Monaco', monospace;
+
+  --docusaurus-highlighted-code-line-bg: rgba(245, 158, 11, 0.08);
+  --ifm-navbar-height: 60px;
+
+  --vf-amber: #F59E0B;
+  --vf-amber-dark: #D97706;
+  --vf-amber-deeper: #B45309;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #F59E0B;
+  --ifm-color-primary-dark: #D97706;
+  --ifm-color-primary-darker: #C26A05;
+  --ifm-color-primary-darkest: #B45309;
+  --ifm-color-primary-light: #FBBF24;
+  --ifm-color-primary-lighter: #FCD34D;
+  --ifm-color-primary-lightest: #FDE68A;
+
+  --docusaurus-highlighted-code-line-bg: rgba(245, 158, 11, 0.12);
+
+  --ifm-background-color: #0A0A0A;
+  --ifm-navbar-background-color: #0A0A0A;
+  --ifm-footer-background-color: #000000;
+  --ifm-background-surface-color: #18181B;
+}
+
+body {
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+}
+
+code, kbd, pre, samp {
+  font-family: 'Space Mono', 'Menlo', 'Monaco', monospace;
+}
+
+.navbar__title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+.hero--primary {
+  background: linear-gradient(135deg, #1a0e00 0%, #0f0800 60%, #080400 100%);
+}
+
+pre code {
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.alert--info {
+  --ifm-alert-border-color: var(--ifm-color-primary);
+}
+
+.badge--package {
+  display: inline-block;
+  padding: 0.15em 0.6em;
+  border-radius: 2em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #F59E0B, #B45309);
+  color: white;
+  margin-right: 0.4em;
+  vertical-align: middle;
+}
+
+.feature-card {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.feature-card:hover {
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.15);
+  border-color: var(--vf-amber);
+}
+
+table th {
+  background: var(--ifm-color-emphasis-100);
+}
