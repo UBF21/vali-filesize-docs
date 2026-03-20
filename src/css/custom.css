@@ -74,15 +74,53 @@ code, kbd, pre, samp {
 }
 
 /* ─────────────────────────────────────────────
-   SCROLLBAR
+   SCROLLBAR — global
    ───────────────────────────────────────────── */
-::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-  background: rgba(217, 119, 6, 0.35);
-  border-radius: 3px;
+  background: rgba(217, 119, 6, 0.3);
+  border-radius: 99px;
 }
 ::-webkit-scrollbar-thumb:hover { background: rgba(217, 119, 6, 0.55); }
+[data-theme='dark'] ::-webkit-scrollbar-thumb { background: rgba(245, 158, 11, 0.22); }
+[data-theme='dark'] ::-webkit-scrollbar-thumb:hover { background: rgba(245, 158, 11, 0.5); }
+
+/* ─────────────────────────────────────────────
+   SCROLLBAR — sidebar (premium pill style)
+   ───────────────────────────────────────────── */
+.theme-doc-sidebar-container ::-webkit-scrollbar { width: 4px; }
+.theme-doc-sidebar-container ::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 8px 0;
+}
+.theme-doc-sidebar-container ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #D97706 0%, #F59E0B 100%);
+  border-radius: 99px;
+  min-height: 40px;
+}
+.theme-doc-sidebar-container ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #F59E0B 0%, #FBBF24 100%);
+}
+
+[data-theme='dark'] .theme-doc-sidebar-container ::-webkit-scrollbar-track { background: transparent; }
+[data-theme='dark'] .theme-doc-sidebar-container ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #D97706 0%, #F59E0B 100%);
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.35);
+}
+[data-theme='dark'] .theme-doc-sidebar-container ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #F59E0B 0%, #FBBF24 100%);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.55);
+}
+
+/* Firefox */
+.theme-doc-sidebar-container {
+  scrollbar-width: thin;
+  scrollbar-color: #D97706 transparent;
+}
+[data-theme='dark'] .theme-doc-sidebar-container {
+  scrollbar-color: #F59E0B transparent;
+}
 
 /* ─────────────────────────────────────────────
    SELECTION
@@ -153,6 +191,77 @@ code, kbd, pre, samp {
 
 [data-theme='dark'] .navbar__link:hover { color: #F59E0B; }
 [data-theme='dark'] .navbar__link--active { color: #F59E0B; }
+
+/* ─────────────────────────────────────────────
+   NAVBAR MOBILE SIDEBAR
+   ───────────────────────────────────────────── */
+
+/* ─────────────────────────────────────────────
+   NAVBAR MOBILE SIDEBAR — igual que goal-docs
+   ───────────────────────────────────────────── */
+.navbar-sidebar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  height: 100dvh !important;
+  width: 83vw !important;
+  max-width: 320px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 200 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  justify-content: flex-start !important;
+}
+
+/* brand: altura fija + flex-shrink:0 para que NO compita con items
+   (infima define flex:1 en brand, lo que tomaría el 50% del alto) */
+.navbar-sidebar__brand {
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 1rem !important;
+  margin: 0 !important;
+  height: var(--ifm-navbar-height) !important;
+  min-height: var(--ifm-navbar-height) !important;
+  max-height: var(--ifm-navbar-height) !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+  order: -1 !important;
+  border-bottom: 1px solid rgba(217, 119, 6, 0.15);
+  box-sizing: border-box !important;
+}
+
+.navbar-sidebar__items {
+  flex: 1 !important;
+  /* sin overflow-y aquí: permite que transform:translate3d funcione
+     correctamente para mostrar el panel de docs (secundario).
+     overflow-y:auto en __items convierte implícitamente overflow-x en auto,
+     lo que puede hacer que el browser compense el translate con scroll
+     horizontal y deje el panel secundario fuera de vista. */
+  min-height: 0;
+}
+
+/* El scroll vertical va en cada panel individual, no en el contenedor slide */
+.navbar-sidebar__item {
+  padding: 0 !important;
+  overflow-y: auto !important;
+  height: 100% !important;
+}
+
+body:has(.navbar-sidebar--show) {
+  overflow: hidden !important;
+}
+
+[data-theme='light'] .navbar-sidebar {
+  background: #ffffff;
+  border-right: 1px solid rgba(217, 119, 6, 0.12);
+}
+
+[data-theme='dark'] .navbar-sidebar {
+  background: #0e0900;
+  border-right: 1px solid rgba(245, 158, 11, 0.12);
+}
 
 /* ─────────────────────────────────────────────
    SIDEBAR — premium panel
@@ -523,7 +632,9 @@ tbody tr:hover { background: rgba(245, 158, 11, 0.04); }
 }
 
 [data-theme='dark'] .footer__title { color: #fcd34d; }
+.footer__link-item { color: #44484f; }
 .footer__link-item:hover { color: #D97706; text-decoration: none; }
+[data-theme='dark'] .footer__link-item { color: #a8956a; }
 [data-theme='dark'] .footer__link-item:hover { color: #F59E0B; }
 
 /* ─────────────────────────────────────────────
@@ -562,6 +673,113 @@ tbody tr:hover { background: rgba(245, 158, 11, 0.04); }
 .feature-card:hover {
   box-shadow: 0 4px 20px rgba(245, 158, 11, 0.15);
   border-color: var(--vf-amber);
+}
+
+/* ─────────────────────────────────────────────
+   SIDEBAR MOBILE — responsive widths
+   ───────────────────────────────────────────── */
+
+/* Small phones (< 380px): wider so content isn't too cramped */
+@media (max-width: 379px) {
+  :root {
+    --ifm-navbar-sidebar-width: 92vw;
+  }
+  .navbar-sidebar {
+    width: 92vw !important;
+    max-width: 92vw !important;
+  }
+}
+
+/* Regular phones (380px – 640px): default 83vw, cap at 300px */
+@media (min-width: 380px) and (max-width: 640px) {
+  :root {
+    --ifm-navbar-sidebar-width: 83vw;
+  }
+  .navbar-sidebar {
+    width: 83vw !important;
+    max-width: 300px !important;
+  }
+}
+
+/* Large phones / small tablets (641px – 767px): fixed 320px */
+@media (min-width: 641px) and (max-width: 767px) {
+  :root {
+    --ifm-navbar-sidebar-width: 320px;
+  }
+  .navbar-sidebar {
+    width: 320px !important;
+    max-width: 320px !important;
+  }
+}
+
+/* Tablets (768px – 996px): fixed 360px */
+@media (min-width: 768px) and (max-width: 996px) {
+  :root {
+    --ifm-navbar-sidebar-width: 360px;
+  }
+  .navbar-sidebar {
+    width: 360px !important;
+    max-width: 360px !important;
+  }
+}
+
+/* Touch targets: larger tap area on mobile */
+@media (max-width: 996px) {
+  .navbar-sidebar__item .menu__link {
+    padding: 0.6rem 1rem !important;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE — tablet & mobile
+   ───────────────────────────────────────────── */
+
+/* Footer: 2 cols en tablet */
+@media (max-width: 768px) {
+  .footer__links {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1.5rem;
+  }
+}
+
+/* Footer: 1 col en mobile */
+@media (max-width: 480px) {
+  .footer__links {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Contenido docs en mobile */
+@media (max-width: 768px) {
+  .markdown { font-size: 0.96rem; line-height: 1.75; }
+  .markdown h1 { font-size: clamp(1.5rem, 6vw, 2rem); }
+  .markdown h2 { font-size: 1.25rem; margin-top: 2rem; }
+  .markdown pre { padding-top: 2rem !important; }
+  .markdown pre::before { top: 0.55rem; }
+}
+
+/* Tabla horizontal scroll en mobile */
+@media (max-width: 640px) {
+  .markdown table,
+  article table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Paginación apilada en mobile */
+@media (max-width: 560px) {
+  .pagination-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .pagination-nav__link { width: 100%; }
 }
 
 .diagram-box {

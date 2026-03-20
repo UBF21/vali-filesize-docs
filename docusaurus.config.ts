@@ -34,6 +34,39 @@ const config: Config = {
     },
   },
 
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: { rel: 'canonical', href: 'https://ubf21.github.io/' },
+    },
+    {
+      tagName: 'script',
+      attributes: {},
+      innerHTML: `(function(){try{if(!localStorage.getItem('theme')){var d=window.matchMedia('(prefers-color-scheme: dark)').matches;localStorage.setItem('theme',d?'dark':'light');document.documentElement.setAttribute('data-theme',d?'dark':'light');}}catch(e){}})();`,
+    },
+    {
+      tagName: 'script',
+      attributes: { type: 'application/ld+json' },
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'Vali-FileSize',
+        applicationCategory: 'DeveloperApplication',
+        operatingSystem: 'Any',
+        description: 'Lightweight .NET library for converting, formatting, and auto-detecting file sizes across all major units with IEC binary prefix support.',
+        url: 'https://www.nuget.org/packages/Vali-FileSize',
+        downloadUrl: 'https://www.nuget.org/packages/Vali-FileSize',
+        author: {
+          '@type': 'Person',
+          name: 'Felipe Rafael Montenegro Morriberon',
+          url: 'https://www.linkedin.com/in/felipe-rafael-montenegro-morriberon-a79a341b2/',
+        },
+        programmingLanguage: 'C#',
+        license: 'https://opensource.org/licenses/MIT',
+      }),
+    },
+  ],
+
   presets: [
     [
       'classic',
@@ -51,7 +84,27 @@ const config: Config = {
   ],
 
   themeConfig: {
-    colorMode: { defaultMode: 'light', respectPrefersColorScheme: true },
+    image: 'img/logo.png',
+    metadata: [
+      { name: 'description', content: 'Vali-FileSize is a lightweight .NET library for converting, formatting, and auto-detecting file sizes across all major units with IEC binary prefix support.' },
+      { name: 'keywords', content: 'Vali-FileSize, dotnet, .NET library, file size, bytes conversion, IEC binary, KiB MiB GiB, NuGet package, C# file size library' },
+      { name: 'author', content: 'Felipe Rafael Montenegro Morriberon' },
+      { name: 'robots', content: 'index, follow, max-image-preview:large' },
+      { name: 'theme-color', content: '#0ea5e9' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:site_name', content: 'Vali-FileSize Docs' },
+      { property: 'og:title', content: 'Vali-FileSize — Lightweight .NET File Size Library' },
+      { property: 'og:description', content: 'Convert, format, and auto-detect file sizes across all major units. IEC binary prefixes (KiB, MiB, GiB, TiB) included. Extension methods for double and long.' },
+      { property: 'og:url', content: 'https://ubf21.github.io/' },
+      { property: 'og:image', content: 'https://ubf21.github.io/img/logo.png' },
+      { property: 'og:locale', content: 'en_US' },
+      { property: 'og:locale:alternate', content: 'es_ES' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: 'Vali-FileSize — Lightweight .NET File Size Library' },
+      { name: 'twitter:description', content: 'Convert, format, and auto-detect file sizes in .NET with IEC binary prefix support. Available on NuGet.' },
+      { name: 'twitter:image', content: 'https://ubf21.github.io/img/logo.png' },
+    ],
+    colorMode: { defaultMode: 'dark', disableSwitch: false, respectPrefersColorScheme: false },
     navbar: {
       title: 'Vali-FileSize',
       logo: { alt: 'Vali-FileSize', src: 'img/logo.png' },
