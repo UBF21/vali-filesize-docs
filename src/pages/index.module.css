@@ -774,6 +774,77 @@
 
 /* ─── Light mode overrides ───────────────────────────────────────────────────── */
 
+[data-theme='light'] .hero {
+  background: #fffbeb;
+}
+
+[data-theme='light'] .heroGrid {
+  background-image:
+    linear-gradient(rgba(180,83,9,0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180,83,9,0.09) 1px, transparent 1px);
+}
+
+[data-theme='light'] .heroOrb1 {
+  background: radial-gradient(ellipse at center, rgba(245,158,11,0.18) 0%, transparent 65%);
+}
+
+[data-theme='light'] .heroOrb2 {
+  background: radial-gradient(ellipse at center, rgba(180,83,9,0.12) 0%, transparent 65%);
+}
+
+[data-theme='light'] .heroOrb3 {
+  background: radial-gradient(ellipse at center, rgba(245,158,11,0.1) 0%, transparent 65%);
+}
+
+[data-theme='light'] .heroTitle {
+  background: linear-gradient(135deg, #92400e 0%, #b45309 35%, #d97706 65%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme='light'] .heroTagline {
+  color: #64748b;
+}
+
+[data-theme='light'] .heroBadge {
+  background: rgba(245,158,11,0.1);
+  border-color: rgba(180,83,9,0.35);
+  color: #92400e;
+}
+
+[data-theme='light'] .heroStatValue {
+  color: #1e293b;
+}
+
+[data-theme='light'] .heroStatLabel {
+  color: #64748b;
+}
+
+[data-theme='light'] .heroInstallWrap {
+  background: linear-gradient(
+    90deg,
+    rgba(180,83,9,0.5),
+    rgba(217,119,6,0.7),
+    rgba(245,158,11,0.5),
+    rgba(180,83,9,0.5)
+  );
+  background-size: 300% 100%;
+  animation: installShimmer 4s linear infinite;
+}
+
+[data-theme='light'] .heroInstall {
+  background: #fff8e6;
+}
+
+[data-theme='light'] .heroInstallCode {
+  color: #1e293b;
+}
+
+[data-theme='light'] .heroInstallCopy {
+  color: #94a3b8;
+}
+
 [data-theme='light'] .featuresSection {
   background: #fffbeb;
   background-image: radial-gradient(circle, rgba(180,83,9,0.1) 1px, transparent 1px);
@@ -816,15 +887,24 @@
   border-color: rgba(180,83,9,0.15);
 }
 
-[data-theme='light'] .cVar    { color: #0070c1; }
+[data-theme='light'] .cVar     { color: #0070c1; }
 [data-theme='light'] .cType   { color: #267f99; }
 [data-theme='light'] .cMethod { color: #795e26; }
 [data-theme='light'] .cProp   { color: #0070c1; }
 [data-theme='light'] .cString { color: #a31515; }
 [data-theme='light'] .cNum    { color: #098658; }
+[data-theme='light'] .cKw     { color: #0000ff; }
 [data-theme='light'] .cPunc   { color: #1e1e1e; }
 [data-theme='light'] .cComment { color: #008000; }
 [data-theme='light'] .codeLineNum { color: #aaa; }
+
+[data-theme='light'] .codeCard {
+  background: #fffbeb;
+}
+
+[data-theme='light'] .codePre {
+  background: transparent !important;
+}
 
 [data-theme='light'] .authorSection {
   background: #fffbf0;
