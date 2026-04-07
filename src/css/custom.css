@@ -48,9 +48,9 @@
   --docusaurus-highlighted-code-line-bg: rgba(245, 158, 11, 0.12);
 
   --ifm-background-color: #0a0a00;
-  --ifm-navbar-background-color: transparent;
-  --ifm-footer-background-color: #000000;
-  --ifm-background-surface-color: #18180a;
+  --ifm-navbar-background-color: #0a0a00;
+  --ifm-footer-background-color: #0a0a00;
+  --ifm-background-surface-color: #0a0a00;
 
   --vb-bg-doc: #0a0a00;
   --vb-surface: #18180a;
@@ -272,7 +272,7 @@ body:has(.navbar-sidebar--show) {
 }
 
 [data-theme='dark'] .theme-doc-sidebar-container {
-  background: linear-gradient(180deg, #0e0900 0%, #140d00 60%, #180f00 100%);
+  background: #0a0a00;
   border-right: 1px solid rgba(217, 119, 6, 0.1) !important;
 }
 
@@ -792,4 +792,17 @@ tbody tr:hover { background: rgba(245, 158, 11, 0.04); }
   font-family: 'Space Mono', monospace;
   font-size: 0.85rem;
   line-height: 1.8;
+}
+
+/* ── DOC PAGE — uniform background ── */
+[data-theme='dark'] html,
+[data-theme='dark'] body,
+[data-theme='dark'] .main-wrapper,
+[data-theme='dark'] .docPage,
+[data-theme='dark'] .docMainContainer,
+[data-theme='dark'] .docItemContainer,
+[data-theme='dark'] .col.docItemCol,
+[data-theme='dark'] .theme-doc-markdown,
+[data-theme='dark'] article {
+  background-color: #0a0a00 !important;
 }
